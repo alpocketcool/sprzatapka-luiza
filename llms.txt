@@ -1,0 +1,9 @@
+# alpocket.cool
+
+> Niezależne studio projektowe i developerskie (Daniel Wilk, Lublin, Polska). Buduje produkty cyfrowe: strony, aplikacje, systemy brandingowe — jednoplikowy HTML/CSS/JS, bez frameworków.
+
+## Strony
+- [Strona główna](https://alpocket.cool/): Portfolio, oferta, kontakt
+- [WallStory](https://alpocket.cool/wallstory-bizplan.html): Branded interior — biznesplan
+- [4Matka](https://alpocket.cool/4matka.html): System zapytań ofertowych
+- [CleanOps / Miłość do Porządku](https://alpocket.cool/luiza.html): System dla firm sprzątających
