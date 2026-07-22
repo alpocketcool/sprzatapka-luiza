@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Kondrat — Agencja Ubezpieczeniowa No Problem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:  #2B1B3D;
+    --bg2: #1e1229;
+    --p1:  #4B2E83;
+    --p2:  #6A3CCB;
+    --p3:  #8E5BFF;
+    --lt:  #EDE7FF;
+    --mu:  rgba(237,231,255,0.55);
+    --mu2: rgba(237,231,255,0.28);
+    --ln:  rgba(142,91,255,0.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg2);
+    color:var(--lt);
+    font-family:'DM Sans',sans-serif;
+    font-weight:300;
+    min-height:100vh;
+  }
+
+  /* szum + glow */
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.02;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .glow{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -5%,rgba(106,60,203,.22) 0%,transparent 70%),
+      radial-gradient(ellipse 50% 35% at 85% 85%,rgba(75,46,131,.12) 0%,transparent 60%);
+  }
+
+  .wrap{
+    position:relative;z-index:1;
+    max-width:440px;margin:0 auto;
+    padding-bottom:3rem;
+  }
+
+  /* ── HERO ── */
+  .hero{
+    background:linear-gradient(175deg,var(--p1) 0%,var(--bg) 55%,var(--bg2) 100%);
+    padding:2.6rem 2rem 2rem;
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(142,91,255,.14) 0%,transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+    width:70px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--p3),transparent);
+  }
+
+  /* Logo N — SVG inline, dopasowane do ikony z mockupa */
+  .logo-wrap{
+    width:72px;height:72px;border-radius:50%;
+    background:linear-gradient(135deg,var(--p1),var(--bg2));
+    border:1.5px solid rgba(142,91,255,.4);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 1rem;
+    box-shadow:0 0 40px rgba(106,60,203,.3),inset 0 0 16px rgba(142,91,255,.06);
+    position:relative;
+  }
+  .logo-wrap::before{
+    content:'';position:absolute;inset:5px;border-radius:50%;
+    border:.5px solid rgba(142,91,255,.18);
+  }
+  .logo-n{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;font-weight:600;font-style:italic;
+    color:var(--p3);line-height:1;position:relative;
+  }
+
+  .firm-sup{
+    font-family:'DM Mono',monospace;
+    font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--p3);margin-bottom:.9rem;
+  }
+  .firm-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.7rem,7vw,2.4rem);
+    font-weight:600;line-height:1.05;
+    color:var(--lt);margin-bottom:.2rem;letter-spacing:.02em;
+  }
+  .firm-name em{color:var(--p3);font-style:italic;}
+  .firm-tag{
+    font-family:'DM Mono',monospace;
+    font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mu);margin-bottom:1.3rem;
+  }
+
+  /* Anna — pill */
+  .person-pill{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:rgba(75,46,131,.35);border:.5px solid var(--ln);
+    border-radius:40px;padding:.5rem 1rem;
+  }
+  .person-av{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--p1);border:1px solid var(--p3);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:1rem;
+    color:var(--p3);font-style:italic;
+  }
+  .person-name{font-size:.82rem;color:var(--lt);font-weight:400;}
+  .person-role{
+    font-family:'DM Mono',monospace;
+    font-size:.54rem;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;
+  }
+
+  /* ── CTA ── */
+  .ctas{padding:1.8rem 2rem 0;display:flex;flex-direction:column;gap:.6rem;}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:.65rem;
+    padding:.9rem 1.5rem;border-radius:2px;text-decoration:none;
+    font-family:'DM Mono',monospace;font-size:.65rem;
+    letter-spacing:.11em;text-transform:uppercase;transition:all .22s;
+  }
+  .btn-p{
+    background:var(--p2);color:var(--lt);border:none;
+    box-shadow:0 4px 22px rgba(106,60,203,.35);
+  }
+  .btn-p:hover{background:var(--p3);box-shadow:0 6px 30px rgba(142,91,255,.45);transform:translateY(-1px);}
+  .btn-g{background:transparent;color:var(--mu);border:.5px solid var(--ln);}
+  .btn-g:hover{border-color:var(--p3);color:var(--p3);}
+
+  /* ── DIVIDER ── */
+  .div{
+    margin:1.8rem 2rem;height:.5px;
+    background:linear-gradient(90deg,transparent,var(--ln),transparent);
+  }
+
+  /* ── DANE ── */
+  .sec{padding:0 2rem;}
+  .sec-lbl{
+    font-family:'DM Mono',monospace;
+    font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--p3);margin-bottom:.9rem;
+    display:flex;align-items:center;gap:10px;
+  }
+  .sec-lbl::after{content:'';flex:1;height:.5px;background:var(--ln);}
+
+  .row{
+    display:flex;align-items:flex-start;gap:.9rem;
+    padding:.8rem 0;border-bottom:.5px solid rgba(255,255,255,.04);
+  }
+  .row:last-child{border-bottom:none;}
+  .ri{font-size:.78rem;color:var(--p3);width:18px;text-align:center;flex-shrink:0;margin-top:2px;}
+  .rk{
+    font-family:'DM Mono',monospace;
+    font-size:.53rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--mu2);margin-bottom:.18rem;
+  }
+  .rv{font-size:.8rem;color:var(--lt);line-height:1.4;}
+  .rv a{color:var(--lt);text-decoration:none;transition:color .2s;}
+  .rv a:hover{color:var(--p3);}
+
+  /* ── USŁUGI ── */
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-top:.8rem;}
+  .chip{
+    background:rgba(75,46,131,.2);border:.5px solid var(--ln);
+    border-radius:1px;padding:.58rem .75rem;
+    font-size:.63rem;color:var(--mu);letter-spacing:.05em;transition:all .2s;
+  }
+  .chip:hover{border-color:var(--p3);color:var(--p3);background:rgba(106,60,203,.15);}
+
+  /* ── QR ── */
+  .qr-card{
+    background:rgba(75,46,131,.2);border:.5px solid var(--ln);
+    border-radius:2px;padding:1.5rem;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .qr-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--p3),transparent);
+  }
+  .qr-ttl{
+    font-family:'DM Mono',monospace;
+    font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--mu);margin-bottom:1.1rem;
+  }
+  .qr-img{
+    width:130px;height:130px;background:var(--lt);border-radius:2px;
+    margin:0 auto .9rem;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  }
+  .qr-img img{width:100%;height:100%;object-fit:contain;}
+  .qr-note{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--mu2);line-height:1.6;}
+
+  /* ── FOOTER ── */
+  .ft{
+    margin-top:2.2rem;padding:1.4rem 2rem 0;
+    border-top:.5px solid rgba(255,255,255,.04);text-align:center;
+  }
+  .ft-txt{
+    font-family:'DM Mono',monospace;
+    font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu2);
+  }
+  .ft-txt a{color:rgba(142,91,255,.6);text-decoration:none;transition:color .2s;}
+  .ft-txt a:hover{color:var(--p3);}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="firm-sup">Agencja Ubezpieczeniowa</div>
+    <div class="logo-wrap"><span class="logo-n">N</span></div>
+    <h1 class="firm-name"><em>No</em> Problem</h1>
+    <div class="firm-tag">Ubezpieczenia dla Ciebie</div>
+    <div class="person-pill">
+      <div class="person-av">A</div>
+      <div>
+        <div class="person-name">Anna Kondrat</div>
+        <div class="person-role">Doradca ds. Finansów</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="ctas">
+    <a href="tel:+48884891798" class="btn btn-p">☎&nbsp; Zadzwoń teraz</a>
+    <a href="mailto:biuro@ubezpieczenianoproblem.pl" class="btn btn-g">✉&nbsp; Napisz e-mail</a>
+    <a href="https://wa.me/48884891798" target="_blank" rel="noopener" class="btn btn-g">●&nbsp; WhatsApp</a>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- DANE -->
+  <div class="sec">
+    <div class="sec-lbl">Kontakt</div>
+    <div class="row">
+      <div class="ri">☎</div>
+      <div><div class="rk">Telefon</div><div class="rv"><a href="tel:+48884891798">884 891 798</a></div></div>
+    </div>
+    <div class="row">
+      <div class="ri">✉</div>
+      <div><div class="rk">E-mail</div><div class="rv"><a href="mailto:biuro@ubezpieczenianoproblem.pl">biuro@ubezpieczenianoproblem.pl</a></div></div>
+    </div>
+    <div class="row">
+      <div class="ri">◎</div>
+      <div><div class="rk">Adres</div><div class="rv">Trawniki 628<br>21-044 Trawniki</div></div>
+    </div>
+    <div class="row">
+      <div class="ri">↗</div>
+      <div><div class="rk">Strona</div><div class="rv"><a href="https://ubezpieczenianoproblem.pl" target="_blank" rel="noopener">ubezpieczenianoproblem.pl</a></div></div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- USŁUGI -->
+  <div class="sec">
+    <div class="sec-lbl">Oferta</div>
+    <div class="chips">
+      <div class="chip">Komunikacyjne</div>
+      <div class="chip">Życiowe</div>
+      <div class="chip">Zdrowotne</div>
+      <div class="chip">Inwestycyjne</div>
+      <div class="chip">Majątkowe</div>
+      <div class="chip">Promocje</div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- QR -->
+  <div class="sec">
+    <div class="qr-card">
+      <div class="qr-ttl">Zapisz kontakt w telefonie</div>
+      <div class="qr-img">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=BEGIN:VCARD%0AVERSION:3.0%0AFN:Anna%20Kondrat%0AORG:Agencja%20Ubezpieczeniowa%20No%20Problem%0ATITLE:Doradca%20Klienta%20ds.%20Finansow%0ATEL:+48884891798%0AEMAIL:biuro%40ubezpieczenianoproblem.pl%0AADR:;;Trawniki%20628;Trawniki;;21-044;PL%0AURL:https://ubezpieczenianoproblem.pl%0AEND:VCARD&color=2B1B3D&bgcolor=EDE7FF"
+          alt="QR — zapisz kontakt" loading="lazy">
+      </div>
+      <div class="qr-note">Zeskanuj aparatem — kontakt trafi prosto do książki adresowej.</div>
+    </div>
+  </div>
+
+  <!-- LINK DO LANDINGU -->
+  <div style="padding:0 2rem;margin-top:1.4rem;">
+    <a href="landing.html" class="btn btn-g" style="border-color:rgba(142,91,255,.35);">
+      ◈&nbsp; Pełna oferta i informacje
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ft">
+    <div class="ft-txt">vCard by <a href="https://alpocket.cool" target="_blank" rel="noopener">alpocket.cool</a></div>
+  </div>
+
+</div>
+</body>
+</html>
